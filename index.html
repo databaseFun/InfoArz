@@ -15,37 +15,28 @@ body {
     overflow-x: hidden;
 }
 
-/* Контейнер */
+/* Контейнер текста (точно как на скрине) */
 .container {
     max-width: 800px;
-    margin: 120px auto;
+    margin: 80px auto 0 auto; /* сверху немного места */
     padding: 20px;
-    text-align: center;
+    text-align: left; /* текст слева, как на скриншоте */
 }
 
-/* Заголовок */
-h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
+/* Текст */
+.info {
+    font-size: 20px;
+    line-height: 1.6;
+    opacity: 0.9;
     text-shadow:
         0 0 6px rgba(255,255,255,0.15),
         0 0 12px rgba(255,255,255,0.08);
 }
 
-/* Текст */
-.info {
-    font-size: 18px;
-    line-height: 1.6;
-    opacity: 0.9;
-    text-shadow: 0 0 4px rgba(255,255,255,0.08);
-}
-
 /* Кнопка */
 .button {
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 12px 25px;
     border: 1px solid rgba(255,255,255,0.4);
     border-radius: 8px;
@@ -81,24 +72,21 @@ h1 {
 <body>
 
 <div class="container">
-    <h1>Привет</h1>
-
     <div class="info">
         <!-- ======== ВОТ СЮДА ПИШИ ИНФОРМАЦИЮ О СЕБЕ ======== -->
-        Напиши здесь информацию о себе.
-        Кто ты, чем занимаешься, что тебе интересно.
+        Привет! Я занимаюсь веб-разработкой и люблю создавать красивые сайты.  
+        Здесь можно написать всё, что хочешь, прямо в этом блоке.
         <!-- ================================================= -->
     </div>
 
-    <!-- ======== ВСТАВЬ СВОЮ ССЫЛКУ ВМЕСТО # ======== -->
+    <!-- Кнопка -->
     <a href="#" class="button" target="_blank">Перейти</a>
-    <!-- =============================================== -->
 </div>
 
 <script>
 function createSnowflake() {
     const snowflake = document.createElement("img");
-    snowflake.src = "images/snowflake.png";  // путь к твоей PNG
+    snowflake.src = "images/snowflake.png";  // твоя PNG
     snowflake.className = "snowflake";
 
     snowflake.style.left = Math.random() * window.innerWidth + "px";

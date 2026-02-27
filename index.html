@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Page</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d1117;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    /* Мягкое свечение */
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.15),
+        0 0 10px rgba(255,255,255,0.08);
+}
+
+.info {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+
+    /* Очень лёгкое свечение */
+    text-shadow: 0 0 4px rgba(255,255,255,0.08);
+}
+
+.button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 25px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.button:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* СНЕЖИНКИ */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Привет</h1>
+
+    <div class="info">
+        <!-- ======== ВОТ СЮДА ПИШИ ИНФОРМАЦИЮ О СЕБЕ ======== -->
+        Напиши здесь информацию о себе.
+        Кто ты, чем занимаешься, что тебе интересно.
+        <!-- ================================================= -->
+    </div>
+
+    <!-- ======== ВСТАВЬ СВОЮ ССЫЛКУ ВМЕСТО # ======== -->
+    <a href="#" class="button" target="_blank">Перейти</a>
+    <!-- =============================================== -->
+</div>
+
+<script>
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    
+    snowflake.style.left = Math.random() * window.innerWidth + "px";
+    snowflake.style.animationDuration = (6 + Math.random() * 6) + "s";
+    snowflake.style.opacity = Math.random();
+    snowflake.style.transform = `scale(${0.5 + Math.random()})`;
+
+    document.body.appendChild(snowflake);
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 12000);
+}
+
+setInterval(createSnowflake, 400);
+</script>
+
+</body>
+</html>

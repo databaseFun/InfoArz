@@ -1,2 +1,0 @@
-# InfoArz
-Literary meAW

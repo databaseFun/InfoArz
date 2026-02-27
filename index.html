@@ -15,12 +15,12 @@ body {
     overflow-x: hidden;
 }
 
-/* Контейнер текста (точно как на скрине) */
+/* Контейнер текста */
 .container {
     max-width: 800px;
-    margin: 80px auto 0 auto; /* сверху немного места */
+    margin: 80px auto 0 auto; /* сверху место */
     padding: 20px;
-    text-align: left; /* текст слева, как на скриншоте */
+    text-align: left;
 }
 
 /* Текст */
@@ -31,24 +31,33 @@ body {
     text-shadow:
         0 0 6px rgba(255,255,255,0.15),
         0 0 12px rgba(255,255,255,0.08);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* fade-in анимация */
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 /* Кнопка */
 .button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     margin-top: 30px;
     padding: 12px 25px;
     border: 1px solid rgba(255,255,255,0.4);
     border-radius: 8px;
     text-decoration: none;
     color: white;
-    transition: 0.3s ease;
+    transition: 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
     background: white;
     color: black;
     box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    transform: translateY(-3px);
 }
 
 /* СНЕЖИНКИ */
@@ -79,14 +88,18 @@ body {
         <!-- ================================================= -->
     </div>
 
-    <!-- Кнопка -->
-    <a href="#" class="button" target="_blank">Перейти</a>
+    <!-- Кнопка с PNG Telegram -->
+    <a href="#" class="button" target="_blank">
+        <img src="images/telegram.png" alt="Telegram" style="width:20px; height:20px; vertical-align:middle; margin-right:8px;">
+        Перейти
+    </a>
 </div>
 
 <script>
+// Генерация снежинок из PNG
 function createSnowflake() {
     const snowflake = document.createElement("img");
-    snowflake.src = "images/snowflake.png";  // твоя PNG
+    snowflake.src = "images/snowflake.png";  // твоя PNG снежинка
     snowflake.className = "snowflake";
 
     snowflake.style.left = Math.random() * window.innerWidth + "px";

@@ -15,34 +15,34 @@ body {
     overflow-x: hidden;
 }
 
+/* Контейнер */
 .container {
     max-width: 800px;
-    margin: 100px auto;
+    margin: 120px auto;
     padding: 20px;
     text-align: center;
 }
 
+/* Заголовок */
 h1 {
     font-size: 40px;
     margin-bottom: 20px;
     font-weight: 600;
     letter-spacing: 1px;
-
-    /* Мягкое свечение */
     text-shadow:
-        0 0 5px rgba(255,255,255,0.15),
-        0 0 10px rgba(255,255,255,0.08);
+        0 0 6px rgba(255,255,255,0.15),
+        0 0 12px rgba(255,255,255,0.08);
 }
 
+/* Текст */
 .info {
     font-size: 18px;
     line-height: 1.6;
     opacity: 0.9;
-
-    /* Очень лёгкое свечение */
     text-shadow: 0 0 4px rgba(255,255,255,0.08);
 }
 
+/* Кнопка */
 .button {
     display: inline-block;
     margin-top: 40px;
@@ -52,30 +52,28 @@ h1 {
     text-decoration: none;
     color: white;
     transition: 0.3s ease;
-    backdrop-filter: blur(5px);
 }
 
 .button:hover {
     background: white;
     color: black;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
 
 /* СНЕЖИНКИ */
 .snowflake {
     position: fixed;
-    top: -10px;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
+    top: -30px;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
     opacity: 0.8;
     animation: fall linear infinite;
 }
 
 @keyframes fall {
     to {
-        transform: translateY(110vh);
+        transform: translateY(110vh) rotate(360deg);
     }
 }
 </style>
@@ -99,22 +97,22 @@ h1 {
 
 <script>
 function createSnowflake() {
-    const snowflake = document.createElement("div");
-    snowflake.classList.add("snowflake");
-    
+    const snowflake = document.createElement("img");
+    snowflake.src = "images/snowflake.png";  // путь к твоей PNG
+    snowflake.className = "snowflake";
+
     snowflake.style.left = Math.random() * window.innerWidth + "px";
-    snowflake.style.animationDuration = (6 + Math.random() * 6) + "s";
-    snowflake.style.opacity = Math.random();
-    snowflake.style.transform = `scale(${0.5 + Math.random()})`;
+    snowflake.style.animationDuration = (8 + Math.random() * 6) + "s";
+    snowflake.style.opacity = 0.5 + Math.random() * 0.5;
 
     document.body.appendChild(snowflake);
 
     setTimeout(() => {
         snowflake.remove();
-    }, 12000);
+    }, 14000);
 }
 
-setInterval(createSnowflake, 400);
+setInterval(createSnowflake, 900);
 </script>
 
 </body>
